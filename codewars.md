@@ -10,6 +10,22 @@ Codewars likes you to have the shortest code possible, and the fewer variable de
 ### Beginner - Lost Without a Map
 
 ### Abbreviate a Two Word Name
+```
+//.split(" ") the two names into an array of 2 words
+// map through them to grab the first index of each word. -> I used .split("") to 
+// join the two letters with a .join"."  
+function abbrevName(name){
+return name.split(" ").map(name => name.split("")[0]).join(".").toUpperCase();
+}
+```
+Final Answer
+```
+const abbrevName = (name) => {
+return name.split(" ").map(name => name[0]).join(".").toUpperCase();
+}
+```
+.toUpperCase() could also go after name[0] inside the smooth bracket. 
+
 
 ### Highest Lowest
 
@@ -62,3 +78,51 @@ Notes:
 ### Credit Card Mask
 
 ### A Needle In the Haystack
+
+
+### Even or Odd
+```
+const evenOrOdd = (number) => {
+// use the % modulo function to determine if the number is even or odd
+// odd numbers will have a remainer, even wont.
+// use an if/else statement initially and then refactor into ternary
+//   if (number % 2 === 0) {
+//     return "Even"
+//   } else {
+//     return "Odd"
+//   }
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+```
+Final Answer
+```
+const evenOrOdd = (number) => {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+```
+The top result removed the "=== 0" from the ternary, I suppose its assumed that if you ask number % 2 ? that the default answer is 0. 
+
+### Opposite Number
+Initial
+```
+const opposite = (number) => {
+  //if number > 0, * -1.
+  //if number < 0, * -1
+  //if number === 0, return 0;
+  if (number > 0 ){
+    return number * -1;
+  } else if (number < 0) {
+    return number * -1;
+  } else if (number === 0) {
+    return 0;
+  }
+}
+```
+Final Answer
+```
+const opposite = (num) => { return num === 0 ? 0 : num * -1; }
+```
+Best Solution
+```
+const opposite = (num) => { return(-num); }
+```
