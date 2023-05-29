@@ -126,3 +126,21 @@ Best Solution
 ```
 const opposite = (num) => { return(-num); }
 ```
+
+### Two to One
+- combine 2 strings (s2.concat(s2))
+- make lowercase
+- split into array, sort
+- use SET (Haley's suggestion), find unique elements in an array
+```
+return s1.concat(s2).toLowerCase().split("").sort();
+return Array.from[new Set].join("");
+or
+return [...new Set].join("");
+```
+Final Answer
+```
+```
+
+
+### Growth of a Population
