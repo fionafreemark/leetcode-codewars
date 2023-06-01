@@ -239,4 +239,21 @@ const numberToString = num => `${num}`;
 const numberToString = num => ''+num;
 ```
 
+## Convert boolean values to strings "Yes" or "No"
+```
+const boolToWord = (bool) => { return bool ? "Yes" : "No"; }
+```
 
+## Even or Odd
+```
+const evenOrOdd = (number) => { return number % 2 === 0 ? "Even" : "Odd"; }
+```
+
+## Convert a String to a Number
+```
+const stringToNumber = str => Number(str);
+```
+or
+```
+const stringToNumber = str => parsInt(str);
+```
