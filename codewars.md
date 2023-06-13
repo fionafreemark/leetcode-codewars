@@ -405,3 +405,34 @@ Now, let's look at the sort part. sort is a special action in programming that a
 The sort part of the function compares each pair of words. Using match, it looks at the numbers in the words and decides if one is bigger or smaller than the other. If a number is bigger, it means it should come later in the sorted list. If a number is smaller, it means it should come earlier.
 
 After comparing all the pairs of words, the sort part of the function rearranges the words based on the comparisons it made. Finally, the function puts all the words back together into a sentence and gives us the result.
+
+## Does my number look big in this?
+```
+function narcissistic(value) {
+//   Find the length of the number
+  const strVal = value.toString();
+//   Split number
+  const arrVal = strVal.split('');
+//   Raise each number to the power of value.length
+  const raisedArr = arrVal.map((num) => {
+   return num ** strVal.length;
+  });
+//   Add up the sum of each result
+ const sum = raisedArr.reduce((acc, cur) => acc + cur);
+//   Compare sum to original value
+  // if same = return true else false
+  return value === sum
+}
+```
+In trying to refactor the code, Haley realized that the .map was doing essentially the same thing that the .reduce was doing (in cycling through each item in the array) and so she determined that we could combine the two within the .reduce. In order for it to work (it was skipping the first number), we had to indicate that it would start at 0.
+FINAL
+```
+function narcissistic(value) {
+ const valStr = value.toString();
+ const sum = valStr.split('').reduce((acc, cur) => {
+    cur **= valStr.length;
+    return acc + cur;
+ }, 0);
+  return value === sum
+}
+```
