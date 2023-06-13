@@ -259,6 +259,7 @@ const stringToNumber = str => parsInt(str);
 ```
 
 ## Remove First and Last Character
+```
 function removeChar(str){
 //  const newArray = [...str];
 //   newArray.pop();
@@ -271,9 +272,10 @@ function removeChar(str){
   <!-- slice returns all of the values in the array between those numbers. -->
   <!-- YOU CAN SLICE A STRING without converting it to an array and back. -->
 };
+```
 
 ## Convert string to Camel Case
-
+```
 function toCamelCase(str){
 //   If str is an empty array return error message
   if (str === '') {
@@ -290,7 +292,8 @@ function toCamelCase(str){
 //   Join the array back together and return
   return words.join('');
 }
-
+```
+```
 function toCamelCase(str){
 //   If str is an empty array return error message
   if (str === '') {
@@ -307,7 +310,7 @@ function toCamelCase(str){
 //   Join the array back together and return
   return words.join('');
 }
-
+```
 ## Sum of odd numbers
 ```
 function rowSumOddNumbers(n) {
