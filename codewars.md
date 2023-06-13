@@ -257,3 +257,148 @@ or
 ```
 const stringToNumber = str => parsInt(str);
 ```
+
+## Remove First and Last Character
+function removeChar(str){
+//  const newArray = [...str];
+//   newArray.pop();
+//   newArray.shift();
+//   return(newArray.join(''));
+
+  return str = [...str].slice(1, -1).join('');
+  <!-- first number starts from the beginning of the array -->
+  <!-- negative number starts from the end of the array -->
+  <!-- slice returns all of the values in the array between those numbers. -->
+  <!-- YOU CAN SLICE A STRING without converting it to an array and back. -->
+};
+
+## Convert string to Camel Case
+
+function toCamelCase(str){
+//   If str is an empty array return error message
+  if (str === '') {
+    return str;
+};
+//   Isolate the words we want and put them in an array
+//   At the same time, erase non-alphanumeric symbols
+  const words = str.split(/[^a-z0-9]/i);
+//   Based on that position, toUpperCase the position after the deletion
+//   Loop through each word and uppercase the first letter/index[0]
+  for (let i = 1; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+  }
+//   Join the array back together and return
+  return words.join('');
+}
+
+function toCamelCase(str){
+//   If str is an empty array return error message
+  if (str === '') {
+    return str;
+};
+//   Isolate the words we want and put them in an array
+//   At the same time, erase non-alphanumeric symbols
+  const words = str.split(/[^a-z0-9]/i);
+//   Based on that position, toUpperCase the position after the deletion
+//   Loop through each word and uppercase the first letter/index[0]
+  for (let i = 1; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+  }
+//   Join the array back together and return
+  return words.join('');
+}
+
+## Sum of odd numbers
+```
+function rowSumOddNumbers(n) {
+//   Figure out which numbers are in row n
+//    In the nth row, there will be n numbers
+//    Figure out what the first number of row n is
+//    eg. 4th row, n = 4, (n - 1)
+//   Add all of the numbers in row n together
+//   Return sum of row n (integer)
+//   Row Breakdown
+//   Row 1: 1 number [1]
+//   Row 2: 2 numbers [3, 5]
+//   Row 3: 3 numbers [7, 9, 11]
+//   Row 4: 4 numbers [13, 15, 17, 19]
+//   Row 5: 5 numbers [21, 23, 25, 27, 29]
+//   [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
+//   Create starting variables for our arrays and incrementing value
+  let numArray = [];
+  let val = 1;
+//   1st loop, we're creating rows to loop through
+  for (let row = 1; row <= n; row++) {
+//    Clear out previous row data
+      numArray = [];
+//    If it's row one, just push
+      if (row === 1) {
+        numArray.push(val);
+      } else {
+        //   For each number in the row, add 2 to the value and push into array
+        for (let i = 1; i <= row; i++) {
+          val += 2;
+          numArray.push(val);
+        }
+      };
+};
+// Return all numbers in the right row added together
+   return numArray.reduce((acc, cur) => acc + cur);
+}
+```
+Final Answer
+```
+function rowSumOddNumbers(n) {
+  let numArray = [];
+  let val = 1;
+  for (let row = 1; row <= n; row++) {
+      numArray = [];
+      if (row === 1) {
+        numArray.push(val);
+      } else {
+        for (let i = 1; i <= row; i++) {
+          val += 2;
+          numArray.push(val);
+        }
+      };
+    };
+  return numArray.reduce((acc, cur) => acc + cur);
+}
+```
+Notes
+The mathematical way to solve this is:
+```
+function rowSumOddNumbers(n) {
+  return n * n * n; //or n**3
+}
+We solved by manipulating the arrays. We build each row of the array from scratch on each loop. Then in our return we reduced the nth row.
+```
+## Your order, please
+```
+function order(words){
+    // split the string into words
+    //   sorting: comparing a and b inside of the array.
+    //   a.match(/\d/) isolates the number inside of the word
+    //   If a > b, we don't change the position, but if its < b, we send it backwards in the array. 
+return words.split(' ').sort((first, second) => {
+    //     find a number inside of a and b, then if a > b, a comes after b (& vice versa)
+  return first.match(/\d/)[0] > second.match(/\d/)[0] ? 0 : -1;
+}).join(' ');
+}
+```
+FINAL
+```
+function order(words){
+ return words.split(' ').sort((first, second) => first.match(/\d/)[0] > second.match(/\d/)[0] ? 0 : -1).join(' ');
+}
+```
+.sort() compares the two values and then moves the first value accordingly to the result. if a > b it stays in the same spot. If its less, the index is moved -1 position to the left. Then it compares b with c, etc.
+
+Longer Explanation:
+This function called order takes a sentence as input. It then looks at each word in the sentence and checks if there is a number in it. If there is a number, it uses that number to put the words in a specific order. For example, if the sentence is "apple2 banana1 orange3", the function will put the words in the order "banana1 apple2 orange3".
+
+Now, let's look at the sort part. sort is a special action in programming that arranges things in a certain order. In this case, it's arranging the words based on their numbers. When we use sort, we give it a way to compare two things and decide which one should come first. In our function, we're comparing the numbers in the words.
+
+The sort part of the function compares each pair of words. Using match, it looks at the numbers in the words and decides if one is bigger or smaller than the other. If a number is bigger, it means it should come later in the sorted list. If a number is smaller, it means it should come earlier.
+
+After comparing all the pairs of words, the sort part of the function rearranges the words based on the comparisons it made. Finally, the function puts all the words back together into a sentence and gives us the result.
