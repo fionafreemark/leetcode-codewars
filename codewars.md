@@ -519,3 +519,22 @@ function basicOp(operation, value1, value2) {
     }
 }
 ```
+
+## Find the smallest integer in the array
+I know we'll need to use the .sort() method like we have previously.
+```
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    args.sort((a, b) => a > b ? 0 : -1)
+    return args[0]; 
+  }
+}
+```
+"sort" takes a "comparison function" as a param - in this case (a, b).
+If a is greater than b, return 0. If it is less than b, return -1. This way, the sort function knows how to arrange the numbers correctly. 
+
+When the comparison function returns -1, it indicates to the sort function that the first number (a) is considered less than the second number (b) in the sorting order. 
+
+**Think of it like, a is then assigned the number -1 and b is assigned 0, therefore maintaining their order in the array. If a is assigned 0 and b is assigned -1, then they are swapped in the array. **
+
+After the numbers are sorted, the function returns the first number from the sorted list, which is the smallest integer, i.e. args[0]
