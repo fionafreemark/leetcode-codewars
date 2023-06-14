@@ -436,3 +436,38 @@ function narcissistic(value) {
   return value === sum
 }
 ```
+
+## Sum of positive
+```
+function positiveSum(arr) {
+// filter the array to remove numbers < 0.
+  posArr = arr.filter((num) => num >= 0 ? num : 0);
+//   console.log(posArr);
+// .reduce the new array
+  return posArr.reduce((arr, cur) => arr + cur, 0);
+}
+```
+FINAL
+```
+function positiveSum(arr) {
+  return posArr = arr.filter((num) => num >= 0 ? num : 0).reduce((arr, cur) => arr + cur, 0);
+}
+```
+Other:
+```
+function positiveSum(arr) {
+  var total = 0;    
+  for (i = 0; i < arr.length; i++) {    // setup loop to go through array of given length
+    if (arr[i] > 0) {                   // if arr[i] is greater than zero
+      total += arr[i];                  // add arr[i] to total
+    }
+  }
+  return total;                         // return total
+}
+```
+This is what I attempted to refactor to, but I had trouble making it work. In this instance, they put b in brackets with a ternary, whereas I had tried to complete that first before the addition expression.
+```
+function positiveSum(arr) {
+   return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+}
+```
