@@ -471,3 +471,51 @@ function positiveSum(arr) {
    return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
 }
 ```
+
+## Basic Mathematical Operations
+This question tripped me up because the operation variable is considered a string. I could concatenate them into a string but was having trouble figuring out how to get them to evaluate to a total. 
+First attempt: Discovered eval(), but learned it is a huge security risk, so afterwards opted to find another solution.
+```
+function basicOp(operation, value1, value2)
+// operation is a string
+// value is a number
+{
+//   This is one solution, but eval() is a huge security risk. 
+return total = eval(`${value1} ${operation} ${value2}`);
+}
+```
+FINAL
+Its suggested that one way to refactor the following is to use a switch statement instead.
+```
+function basicOp(operation, value1, value2)
+{
+  if (operation === "+") {
+    return value1 + value2;
+  } else if (operation === "-") {
+    return value1 - value2;
+  } else if (operation === "*") {
+    return value1 * value2;
+  } else if (operation === "/") {
+    return value1 / value2;
+  } else {
+    return "invalid operation";
+  }
+}
+```
+Switch Version
+```
+function basicOp(operation, value1, value2) {
+    switch (operation) {
+        case '+':
+            return value1 + value2;
+        case '-':
+            return value1 - value2;
+        case '*':
+            return value1 * value2;
+        case '/':
+            return value1 / value2;
+        default:
+            return 0;
+    }
+}
+```
